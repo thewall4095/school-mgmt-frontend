@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+@import "~bootstrap/dist/css/bootstrap.css";
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+@include mat-core();
+$app-primary: mat-palette($mat-indigo);
+$app-accent:  mat-palette($mat-pink);
+$app-warn:    mat-palette($mat-red);
+
+// Custom Sass colors vars (will be available in all the project)
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+
+$theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@include angular-material-theme($theme);
+
+@import '~@mat-datetimepicker/core/datetimepicker/datetimepicker-theme.scss';
+@include mat-datetimepicker-theme($theme);
+
+.relative{
+    position: relative;
+}
